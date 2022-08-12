@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-mkl-=#j#8epv7$
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '(pythonanywhere ID).pythonanywhere.com'
+    'BankoftheBest.pythonanywhere.com'
 ]
 
 
