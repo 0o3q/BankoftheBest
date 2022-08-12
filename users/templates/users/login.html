@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Bank of the Best</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            height: 100vh;
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #fff;
+            display: block;
+        }
+
+        #wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            min-height: 100%;
+            padding: 20px;
+        }
+
+        #formContent {
+            border-radius: 10px 10px 10px 10px;
+            background: #fff;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+            padding: 0px;
+            box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+            text-align: center;
+            display: block;
+        }
+
+        #formHeader {
+            text-align: left;
+            word-spacing: 0px;
+            height: 140.262px;
+            display: block;
+        }
+        
+        #formBody {
+            height: 230.5px;
+        }
+
+        #user_id {
+            background-color: #f6f6f6;
+            color: #0d0d0d;
+            padding: 15px 32px 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            width: 305px;
+            border: 2px soilid #f6f6f6;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        #user_pw {
+            background-color: #f6f6f6;
+            color: #0d0d0d;
+            padding: 15px 32px 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            width: 305px;
+            border: 2px soilid #f6f6f6;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        #loginSubmit {
+            background-color: #56baed;
+            border: none;
+            color: white;
+            padding: 15px 80px 15px 80px;
+            text-align: center;
+            display: inline-block;
+            font-size: 13px;
+            height: 50px;
+            margin: 5px 20px 40px 20px;
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        #formFooter {
+            background-color: #f6f6f6;
+            border-top: 1px solid #dce8f1;
+            padding: 25px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
+
+        img {
+            padding-left: 35%;
+            height: 140px;
+            width: 130px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="formContent">
+            <div id="formHeader">
+                <img src="https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/298527394_1848258735505100_999768576541589411_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=_XFeSgpSrK0AX8Fb9nQ&_nc_ht=scontent-ssn1-1.xx&oh=00_AT8FhIXz2U2omLIWZgxakAR1laPwgNc86aHSTJqPdm6k9w&oe=62FA6A92" id="icon" alt="Logo">
+            </div>
+
+            <form method="POST" id="formBody" action="{% url 'login' %}">
+            {% csrf_token %}
+                <input type="text" id="user_id" name="user_id" placeholder="ID" required autofocus>
+                <input type="password" id="user_pw" name="user_pw" placeholder="PW" required>
+                <input type="submit" id="loginSubmit" value="Log in">
+            </form>
+
+            <div id="formFooter">아이디 모르면 관리자 문의 ㄱㄱ</div>
+        </div>
+    </div>
+
+    {% if error %}
+    <script>alert('{{ error }}');</script>
+    {% endif %}
+
+</body>
+
+</html>
